@@ -21,7 +21,7 @@ public class ChessGame {
 
     public static void main(String[] args) throws IOException {
         LinkedList<Piece> pieces = new LinkedList<>();
-        BufferedImage all = ImageIO.read(new File("C:\\Users\\stefa\\IdeaProjects\\PlayableChessBot\\src\\chessgame\\assets\\chess.png"));
+        BufferedImage all = ImageIO.read(new File("src/chessgame/assets/chess.png"));
         Image[] imgs = new Image[12];
         int ind = 0;
         for (int y = 0; y < 400; y += 200) {
