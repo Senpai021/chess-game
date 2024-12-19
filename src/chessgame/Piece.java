@@ -28,10 +28,11 @@
 package chessgame;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Piece {
-    int xp;
-    int yp;
+    int xp, yp;
+    int x, y;
     PieceType pieceType;
     boolean isWhite;
     LinkedList<Piece> pieces;
@@ -39,23 +40,55 @@ public class Piece {
     public Piece(int xp, int yp, PieceType pieceType, boolean isWhite, @org.jetbrains.annotations.NotNull LinkedList<Piece> pieces) {
         this.xp = xp;
         this.yp = yp;
+        x = xp * 64;
+        y = yp * 64;
         this.pieceType = pieceType;
         this.isWhite = isWhite;
         this.pieces = pieces;
         pieces.add(this);
     }
 
+    @Override
+    public String toString() {
+        return "Piece{" +
+                "xp=" + xp +
+                ", yp=" + yp +
+                ", x=" + x +
+                ", y=" + y +
+                ", pieceType=" + pieceType +
+                ", isWhite=" + isWhite +
+                '}';
+    }
+
     public void move(int xp, int yp) {
-        pieces.stream().filter(
-                p ->
-                        p.xp == xp &&
-                        p.yp == yp &&
-                        p.isWhite == isWhite
-        ).forEachOrdered(
-                Piece::takePiece
-        );
+        // Check if the move is within the board boundaries
+        if (xp < 0 || xp >= 8 || yp < 0 || yp >= 8) {
+            // Invalid move, return to original position
+            return;
+        }
+
+        // Check if there is a piece of the same color at the target position
+        boolean sameColorPieceExists = pieces.stream()
+                .anyMatch(p -> p.xp == xp && p.yp == yp && p.isWhite == this.isWhite);
+
+        if (sameColorPieceExists) {
+            // Invalid move, return to original position
+            return;
+        }
+
+        // Collect pieces to be removed (opposite color)
+        List<Piece> piecesToRemove = pieces.stream()
+                .filter(p -> p.xp == xp && p.yp == yp && p.isWhite != this.isWhite)
+                .toList();
+
+        // Remove the collected pieces
+        piecesToRemove.forEach(Piece::takePiece);
+
+        // Update the position of the current piece
         this.xp = xp;
         this.yp = yp;
+        x = xp * 64;
+        y = yp * 64;
     }
 
     public void takePiece() {
