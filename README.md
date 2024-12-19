@@ -16,8 +16,17 @@ This is a simple chess game implemented in Java. The game allows two players to 
 1. Clone this repository to your local machine using:
    ```bash
    git clone https://github.com/yourusername/chess-game.git
+   ```
+2. Change the directory to the project directory
+   ```bash
    cd 'project directory
+   ```
+3. Compile the java files
+   ```bash
    javac *.java
+   ```
+4. Run the file
+   ```bash
    java ChessGame
    ```
 ## Usage
