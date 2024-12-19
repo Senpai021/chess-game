@@ -8,7 +8,7 @@ This is a simple chess game implemented in Java. The game allows two players to 
 - Movement of pieces is governed by chess rules (e.g., castling, en passant, pawn promotion).
 - Easy-to-understand code structure, suitable for learning and modification.
 - Game over conditions, such as checkmate and stalemate.
-- 
+  
 ### Prerequisites
 - Java 8 or higher installed on your system.
 
