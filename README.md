@@ -42,5 +42,5 @@ This is a simple chess game implemented in Java. The game allows two players to 
 6. Open a pull request.
 
 ## License 
-This porject is licensed under the AFL-3.0 license. 
+This project is licensed under the AFL-3.0 license. 
 In summary, the AFL is a permissive open-source license that provides flexibility for both academic and commercial use, allowing modification, redistribution, and including a patent grant, while also protecting the original authors with a no-warranty clause.
