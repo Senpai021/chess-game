@@ -37,7 +37,7 @@ public class Piece {
     boolean isWhite;
     LinkedList<Piece> pieces;
 
-    public Piece(int xp, int yp, PieceType pieceType, boolean isWhite, @org.jetbrains.annotations.NotNull LinkedList<Piece> pieces) {
+    public Piece(int xp, int yp, PieceType pieceType, boolean isWhite, LinkedList<Piece> pieces) {
         this.xp = xp;
         this.yp = yp;
         x = xp * 64;
